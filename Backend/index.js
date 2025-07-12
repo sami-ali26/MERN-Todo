@@ -46,7 +46,7 @@ app.put('/completed', async function (req, res) {
         })
         return;
     }
-    await Todo.findByIdAndUpdat({
+    await Todo.findByIdAndUpdate({
         _id: userBody.id
     }, {
         completed: true
