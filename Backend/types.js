@@ -10,6 +10,6 @@ const updateTodo = z.object({
 })
 
 module.exports = {
-    createTodo: updateTodo,
+    createTodo: createTodo,
     updateTodo: updateTodo
 }

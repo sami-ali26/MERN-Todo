@@ -1,7 +1,7 @@
 const express = require('express')
 const { createTodo, updateTodo } = require('./types')
 const { Todo } = require('./db')
-const { TimePrecision } = require('zod')
+
 
 const app = express()
 
@@ -11,7 +11,7 @@ app.use(express.json())
 const port = 5050
 
 app.post('/todo', async function (req, res) {
-    const userBody = req.body()
+    const userBody = req.body;
     const { success } = createTodo.safeParse(userBody)
     if (!success) {
         res.status(411).json({
@@ -19,7 +19,7 @@ app.post('/todo', async function (req, res) {
         })
         return;
     }
-    await Todo.createTodo({
+    await Todo.create({
         title: userBody.title,
         description: userBody.description,
         completed: false
