@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export function CreateTodo() {
+export function CreateTodo({ todos, setTodos }) {
   const [title, setTitle] = useState("");
   const [description, setDescripton] = useState("");
   return (
@@ -31,6 +31,13 @@ export function CreateTodo() {
             title: title,
             description: description,
           });
+          setTodos([
+            ...todos,
+            {
+              title,
+              description,
+            },
+          ]);
         }}
       >
         Add a Todo
