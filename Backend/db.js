@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
-mongoose.connect("mongodb+srv://admin:adminmongo@cluster0.uqnsz.mongodb.net/reactodo")
+mongoose.connect(process.env.MONGODB_URL)
 const todoSchema = new mongoose.Schema({
     title: String,
     description: String,
