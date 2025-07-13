@@ -31,8 +31,6 @@ export function CreateTodo() {
             title: title,
             description: description,
           });
-          document.getElementById("description").innerHTML = "";
-          document.getElementById("title").innerHTML = "";
         }}
       >
         Add a Todo
