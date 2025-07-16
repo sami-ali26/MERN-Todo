@@ -16,6 +16,17 @@ export function Todos({ todos }) {
             <h4>{todo.description}</h4>
             <button
               onClick={() => {
+                axios.delete("http://localhost:5050/delete", {
+                  data: {
+                    id: todo._id,
+                  },
+                });
+              }}
+            >
+              Delete
+            </button>
+            <button
+              onClick={() => {
                 axios.put("http://localhost:5050/completed", {
                   id: todo._id,
                 });
