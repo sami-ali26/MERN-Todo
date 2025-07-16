@@ -58,6 +58,24 @@ app.put('/completed', async function (req, res) {
     })
 
 })
+app.delete('/delete', async function (req, res) {
+    const userBody = req.body;
+
+    const { success } = updateTodo.safeParse(userBody)
+    if (!success) {
+        res.status(411).json({
+            message: "Send right todo id"
+        })
+        return;
+    }
+    await Todo.findByIdAndDelete({
+        _id: userBody.id
+    })
+    return res.status(202).json({
+        msg: "Deleted"
+    })
+
+})
 
 
 app.listen(port, () => {
